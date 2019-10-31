@@ -1,6 +1,12 @@
 package escapeGame;
 import java.util.Scanner;
 
+/**
+ * <b>Joueur est la classe qui réccupère et stock la combinaison du joueur </b>
+ * @author Pulsar
+ * @version 1.0
+ */
+
 public class Joueur {
 	
 	static int  xChiffrComb = 4;
@@ -9,13 +15,6 @@ public class Joueur {
 	private String combX;
 	Scanner clavier = new Scanner(System.in);
 	
-
-	public int getXchiffrComb() {
-		return xChiffrComb;
-	}
-	public void setXchiffrComb(int xchiffrComb) {
-		this.xChiffrComb = xchiffrComb;
-	} 
 	
 	/** 
 	 * Reccupère la combinaison du joueur

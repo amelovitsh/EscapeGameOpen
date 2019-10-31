@@ -12,12 +12,15 @@ import java.util.Scanner;
 
 public class Comparateur2 {
 	static int  xChiffrComb = 4;
+	static int nbrEssai =100;
+	int tour =0;
 	static char indicationJ[] = new char[xChiffrComb];
 	static int nvlProposition[]= new int[xChiffrComb];
 	int tabMin[]= new int[xChiffrComb];
 	int tabMax[]= new int[xChiffrComb];
+	int pivot[]= new int[xChiffrComb];
 	static int  a = 1;
-	static int equals = 0;
+	int equals = 0;
 	private String indicSign;
 	Scanner clavier = new Scanner(System.in);
 	
@@ -52,53 +55,57 @@ public class Comparateur2 {
 		for(int i = 0; i <= xChiffrComb-1; i++) {
 			tabMin[i] = 0;
 			tabMax[i] = 9;
-			System.out.print((tabMax[i]+tabMin[i])/2+1);
-		};
-		Comparateur2 compStock = new Comparateur2();
-		compStock.stockIndication();
-		
-		
-		while (equals < (indicationJ.length-1)){
-		if (equals != indicationJ.length) {
-			equals = 0;
-			
-			
-		for(int i=0; i< indicationJ.length; i++) {
-			//tabMin[i] = 0;
-			//tabMax[i] = 9;
-			int pivot = tabMin[i]+tabMax[i]/2;
-			
-			if(indicationJ[i] == '=') {
-				nvlProposition[i] = pivot;
-				 equals++;
-			}
-			else if(indicationJ[i] == '+'){
-				 
-				 nvlProposition[i] = pivot + 1;
-				 tabMin[i] = pivot;
-				 
-			}
-			else if(indicationJ[i] == '-'){
-				 
-				 nvlProposition[i] = pivot - 1;
-				 tabMax[i] = pivot;
-			}
+			pivot[i] = (tabMax[i]+tabMin[i])/2+1;
+			System.out.print(pivot[i]);
 		}
-		
-		for (int u = 0; u < nvlProposition.length; u++) {
 			
-	        System.out.print(nvlProposition[u]);      
-		}
+		while (equals < indicationJ.length){
+			
+				equals = 0;
+				stockIndication();
+				
+				for(int i=0; i< indicationJ.length; i++) {
+					//tabMin[i] = 0;
+					//tabMax[i] = 9;
+					pivot[i] = (tabMin[i]+tabMax[i]/2)+1;
+								
+					if(indicationJ[i] == '=') {
 	
-		compStock.stockIndication();
-	      }
-		}
-		if(equals == (indicationJ.length-1)) {
-			System.out.println("Votre combinaison est");
-		
-			for (int u = 0; u < nvlProposition.length; u++) {
-		        System.out.print(nvlProposition[u]);
-			}
+						nvlProposition[i] = pivot[i];
+						equals++;
+						
+					}
+					else if(indicationJ[i] == '+'){
+						 
+						 nvlProposition[i] = pivot[i] + 1;
+						 tabMin[i] = pivot[i];
+						 System.out.print(tabMin[i]);
+						 System.out.print(tabMax[i]);
+						 System.out.print(pivot[i]);
+						 
+					}
+					else if(indicationJ[i] == '-'){
+						 
+						 nvlProposition[i] = pivot[i] - 1;
+						 tabMax[i] = pivot[i];
+						 
+					}
+				}
+					if(equals != indicationJ.length ) {
+						/*for (int u = 0; u < nvlProposition.length; u++) {
+							
+					        System.out.print(nvlProposition[u]);  
+						}*/
+					}
+				}
+		//System.out.print(equals);
+				
+				if(equals == (indicationJ.length)) {
+					System.out.println("Votre combinaison est");
+				
+					for (int u = 0; u < nvlProposition.length; u++) {
+				        System.out.print(nvlProposition[u]);
+					}
 		}
 		return nvlProposition;	
 	
@@ -119,33 +126,40 @@ public class Comparateur2 {
 		Joueur Jtest = new Joueur();
 		int []tabJ = Jtest.demandCombJ();
 		
-		while(equals != tabJ.length ) {
-			
-			for (int i = 0; i < tabJ.length; i++) {
-					
-				if(tabJ[i]==tabO[i]) {
-					
-					System.out.print("=");
-					equals++;
-				}
+		while(tour != nbrEssai) {
+		
+			while(equals != tabJ.length ) {
 				
-				else if (tabO[i]<tabJ[i]){
-					System.out.print("-");
+				for (int i = 0; i < tabJ.length; i++) {
+						
+					if(tabJ[i]==tabO[i]) {
+						
+						System.out.print("=");
+						equals++;
+					}
+					
+					else if (tabO[i]<tabJ[i]){
+						System.out.print("-");
+					}
+					else if (tabO[i]>tabJ[i]){
+						System.out.print("+");
+					}	
 				}
-				else if (tabO[i]>tabJ[i]){
-					System.out.print("+");
-				}	
+				if(equals != tabJ.length) {
+					
+					equals = 0;
+					Jtest.demandCombJ();
+					}
+				
+					else if(equals == tabJ.length){
+						System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
+					}
 			}
-			if(equals != tabJ.length) {
-				
-				equals = 0;
-				Jtest.demandCombJ();
-				}
-			
-				else if(equals == tabJ.length){
-					System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
-				}
+			 tour++;
 		}
+		
+		System.out.print("Nombre d'essais maximum atteint");
+		
 				
 			}
 	
@@ -154,8 +168,7 @@ public class Comparateur2 {
 	 * @see Comparateur
      */
 	public void deffenseur() {
-		Comparateur2 compStock = new Comparateur2();
-		compStock.devinCombJ();
+		devinCombJ();
 
 	}
 	
@@ -165,14 +178,25 @@ public class Comparateur2 {
      */
 	public void duel() {
 		int tour = 0;
-		int pairImpair = tour %2;
 		
-		if(pairImpair==0) {
+			while(tour != nbrEssai) {
+		
+				int pairImpair = tour %2;
+				
+				if(pairImpair==0) {
+					devinCombJ();
+					challenger();
+					tour++;
+				}
+				else {
+					challenger();
+					devinCombJ();
+					tour++;
+				}
+			}
 			
-		}
-		else {
+			System.out.print("Nombre d'essais maximum atteint");
 			
-		}
 
 	}
 	
