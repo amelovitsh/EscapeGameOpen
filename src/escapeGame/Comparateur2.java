@@ -77,25 +77,21 @@ public class Comparateur2 {
 					}
 					else if(indicationJ[i] == '+'){
 						 
-						 nvlProposition[i] = pivot[i] + 1;
-						 tabMin[i] = pivot[i];
-						 System.out.print(tabMin[i]);
-						 System.out.print(tabMax[i]);
-						 System.out.print(pivot[i]);
-						 
+						 nvlProposition[i] = pivot[i];
+						 tabMin[i] = pivot[i] +1;
 					}
 					else if(indicationJ[i] == '-'){
 						 
-						 nvlProposition[i] = pivot[i] - 1;
-						 tabMax[i] = pivot[i];
+						 nvlProposition[i] = pivot[i];
+						 tabMax[i] = pivot[i]-1;
 						 
 					}
 				}
 					if(equals != indicationJ.length ) {
-						/*for (int u = 0; u < nvlProposition.length; u++) {
+						for (int u = 0; u < nvlProposition.length; u++) {
 							
 					        System.out.print(nvlProposition[u]);  
-						}*/
+						}
 					}
 				}
 		//System.out.print(equals);

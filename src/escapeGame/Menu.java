@@ -106,7 +106,7 @@ public class Menu {
 			case 3:
 				System.out.println("Vous avez choisi le mode Duel");
 				Comparateur2 JoueurEscape3 = new Comparateur2();
-				JoueurEscape3.devinCombJ();	
+				JoueurEscape3.duel();	
 				break;
 				
 			case 4:
