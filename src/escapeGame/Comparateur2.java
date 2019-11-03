@@ -58,7 +58,7 @@ public class Comparateur2 {
 			pivot[i] = (tabMax[i]+tabMin[i])/2+1;
 			System.out.print(pivot[i]);
 		}
-			
+		
 		while (equals < indicationJ.length){
 			
 				equals = 0;
@@ -82,10 +82,19 @@ public class Comparateur2 {
 					pivot[i] = ((tabMin[i]+tabMax[i])/2)+1;
 					nvlProposition[i] = pivot[i];
 				}
-					if(equals != indicationJ.length ) {
+				
+				essai++;
+				System.out.print(essai);
+				System.out.print(nbrEssai);
+				if(equals != indicationJ.length & essai == nbrEssai) {
+					
+				System.out.print("\nNombre d'essais maximum atteint");
+						
+				}
+					if(equals != indicationJ.length & essai != nbrEssai) {
 						for (int u = 0; u < nvlProposition.length; u++) {
 							if(nvlProposition[u]>=1 & nvlProposition[u]<9) {
-								System.out.print("chuila");
+								
 					        System.out.print(nvlProposition[u]); 
 							}
 							else if(nvlProposition[u]>9) {
@@ -94,9 +103,9 @@ public class Comparateur2 {
 								}
 						}
 					}
-				}
+		}
 				
-				if(equals == (indicationJ.length)) {
+				if(equals == indicationJ.length) {
 					System.out.println("Votre combinaison est");
 				
 					for (int u = 0; u < nvlProposition.length; u++) {
@@ -108,7 +117,7 @@ public class Comparateur2 {
 							System.out.print(nvlProposition[u]);
 							}
 					}
-		}
+				}
 	}
 	
 	/** 
@@ -144,8 +153,7 @@ public class Comparateur2 {
 					}	
 				}
 				essai++;
-				System.out.print(essai);
-				System.out.print(nbrEssai);
+			
 				if(equals != tabJ.length) {
 					
 					equals = 0;
@@ -191,7 +199,6 @@ public class Comparateur2 {
 			
 			System.out.print("Nombre d'essais maximum atteint");
 			
-
 	}
 	
 }
