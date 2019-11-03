@@ -67,9 +67,8 @@ public class Comparateur2 {
 				for(int i=0; i< indicationJ.length; i++) {
 					
 					if(indicationJ[i] == '=') {
-	
-						equals++;
 						
+						equals++;	
 					}
 					else if(indicationJ[i] == '+'){
 						 
@@ -85,8 +84,14 @@ public class Comparateur2 {
 				}
 					if(equals != indicationJ.length ) {
 						for (int u = 0; u < nvlProposition.length; u++) {
-							
-					        System.out.print(nvlProposition[u]);  
+							if(nvlProposition[u]>=1 & nvlProposition[u]<9) {
+								System.out.print("chuila");
+					        System.out.print(nvlProposition[u]); 
+							}
+							else if(nvlProposition[u]>9) {
+								nvlProposition[u]=9;
+								System.out.print(nvlProposition[u]);
+								}
 						}
 					}
 				}
@@ -95,7 +100,13 @@ public class Comparateur2 {
 					System.out.println("Votre combinaison est");
 				
 					for (int u = 0; u < nvlProposition.length; u++) {
-				        System.out.print(nvlProposition[u]);
+						if(nvlProposition[u]>=1 & nvlProposition[u]<9) {
+				        System.out.print(nvlProposition[u]); 
+						}
+						else if(nvlProposition[u]>9) {
+							nvlProposition[u]=9;
+							System.out.print(nvlProposition[u]);
+							}
 					}
 		}
 	}
