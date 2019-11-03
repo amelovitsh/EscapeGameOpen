@@ -12,8 +12,8 @@ import java.util.Scanner;
 
 public class Comparateur2 {
 	static int  xChiffrComb = 4;
-	static int nbrEssai =100;
-	int tour =0;
+	static int nbrEssai =2;
+	int essai =0;
 	static char indicationJ[] = new char[xChiffrComb];
 	static int nvlProposition[]= new int[xChiffrComb];
 	int tabMin[]= new int[xChiffrComb];
@@ -43,12 +43,12 @@ public class Comparateur2 {
 		}
 	
 	/** 
-	 * Système utilise recherche dichotomique pour deviner comb Joueur
+	 * Mode deffenseur Ordi tente de donner combinaison joueur selon recherche dichotomique
 	 * @see Joueur
 	 * @see Comparateur
      * @return indicationJ
      */
-	public int [] devinCombJ(){ 
+	public void deffenseur(){ 
 		Joueur Jtest = new Joueur();
 		int []tabJ = Jtest.demandCombJ();
 		
@@ -65,27 +65,23 @@ public class Comparateur2 {
 				stockIndication();
 				
 				for(int i=0; i< indicationJ.length; i++) {
-					//tabMin[i] = 0;
-					//tabMax[i] = 9;
-					pivot[i] = (tabMin[i]+tabMax[i]/2)+1;
-								
+					
 					if(indicationJ[i] == '=') {
 	
-						nvlProposition[i] = pivot[i];
 						equals++;
 						
 					}
 					else if(indicationJ[i] == '+'){
 						 
-						 nvlProposition[i] = pivot[i];
 						 tabMin[i] = pivot[i] +1;
 					}
 					else if(indicationJ[i] == '-'){
 						 
-						 nvlProposition[i] = pivot[i];
 						 tabMax[i] = pivot[i]-1;
-						 
+						
 					}
+					pivot[i] = ((tabMin[i]+tabMax[i])/2)+1;
+					nvlProposition[i] = pivot[i];
 				}
 					if(equals != indicationJ.length ) {
 						for (int u = 0; u < nvlProposition.length; u++) {
@@ -94,7 +90,6 @@ public class Comparateur2 {
 						}
 					}
 				}
-		//System.out.print(equals);
 				
 				if(equals == (indicationJ.length)) {
 					System.out.println("Votre combinaison est");
@@ -103,8 +98,6 @@ public class Comparateur2 {
 				        System.out.print(nvlProposition[u]);
 					}
 		}
-		return nvlProposition;	
-	
 	}
 	
 	/** 
@@ -122,9 +115,7 @@ public class Comparateur2 {
 		Joueur Jtest = new Joueur();
 		int []tabJ = Jtest.demandCombJ();
 		
-		while(tour != nbrEssai) {
-		
-			while(equals != tabJ.length ) {
+			while(equals != tabJ.length & essai != nbrEssai) {
 				
 				for (int i = 0; i < tabJ.length; i++) {
 						
@@ -141,6 +132,9 @@ public class Comparateur2 {
 						System.out.print("+");
 					}	
 				}
+				essai++;
+				System.out.print(essai);
+				System.out.print(nbrEssai);
 				if(equals != tabJ.length) {
 					
 					equals = 0;
@@ -151,22 +145,15 @@ public class Comparateur2 {
 						System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
 					}
 			}
-			 tour++;
+			if(essai == nbrEssai) {
+			System.out.print("\nNombre d'essais maximum atteint");
 		}
-		
-		System.out.print("Nombre d'essais maximum atteint");
-		
-				
 			}
 	
 	/** 
-	 * Mode deffenseur Ordi tente de donner combinaison joueur selon recherche dichotomique
+	 * 
 	 * @see Comparateur
      */
-	public void deffenseur() {
-		devinCombJ();
-
-	}
 	
 	/** 
 	 * Mode duel Ordi et Joueur tentent de deviner la combinaison de l'autre à tour de rôle
@@ -180,13 +167,13 @@ public class Comparateur2 {
 				int pairImpair = tour %2;
 				
 				if(pairImpair==0) {
-					devinCombJ();
+					deffenseur();
 					challenger();
 					tour++;
 				}
 				else {
 					challenger();
-					devinCombJ();
+					deffenseur();
 					tour++;
 				}
 			}
