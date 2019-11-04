@@ -85,7 +85,7 @@ public class Comparateur2 {
 				
 				essai++;
 				System.out.print(essai);
-				System.out.print(nbrEssai);
+				System.out.print(nbrEssai+"\n");
 				if(equals != indicationJ.length & essai == nbrEssai) {
 					
 				System.out.print("\nNombre d'essais maximum atteint");
@@ -132,6 +132,7 @@ public class Comparateur2 {
 		Ordi OrdiEscape = new Ordi();
 		int [] tabO = OrdiEscape.generCombO();
 		
+		System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
 		Joueur Jtest = new Joueur();
 		int []tabJ = Jtest.demandCombJ();
 		
@@ -179,26 +180,23 @@ public class Comparateur2 {
 	 * @see Comparateur
      */
 	public void duel() {
-		int tour = 0;
-		
-			while(tour != nbrEssai) {
-		
-				int pairImpair = tour %2;
-				
-				if(pairImpair==0) {
-					deffenseur();
-					challenger();
-					tour++;
-				}
-				else {
-					challenger();
-					deffenseur();
-					tour++;
-				}
-			}
-			
-			System.out.print("Nombre d'essais maximum atteint");
-			
-	}
+	int tour = nbrEssai;
 	
+	while(tour>0) {
+		
+		int pairImpair = tour %2;
+		
+		if(pairImpair==0) {
+			System.out.print("\nchallenger\n");
+			challenger();
+			tour--;
+		}
+		else {
+			System.out.print("\ndeffenseur\n");
+			deffenseur();
+			tour--;
+		}
+		}	
+		
+	}	
 }
