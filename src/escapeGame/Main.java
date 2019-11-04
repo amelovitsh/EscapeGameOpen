@@ -1,25 +1,18 @@
 package escapeGame;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Properties;
 public class Main {
 
 	public static void main(String[] args) {
-		/*private String rootPath;
-		String appConfigPath = rootPath + "config.properties";
-		Properties appProps = new Properties();
+		LecturConfig appProps = new LecturConfig();
 		appProps.load(new FileInputStream(config.properties));
-		String appXChiffrComb = appProps.getProperty("xChiffrComb");
-		assertEquals("4", xChiffrComb);
-		String appNbrEssai = appProps.getProperty("nbrEssai");
-		assertEquals("100", nbrEssai); 
-		String appMoDev = appProps.getProperty("moDev");
-		assertEquals("false", moDev);
-		*/
+		int appXChiffrComb = appProps.getProperty("xChiffrComb");
+		int appNbrEssai = appProps.getProperty("nbrEssai");
+		boolean appMoDev = appProps.getProperty("moDev");
 		
 		Menu MenuEscape = new Menu();	
 		MenuEscape.AfficherInstructions(MenuEscape.getInstructions());
-		
-		//Ordi OrdiEscape = new Ordi();
-		//OrdiEscape.GenerCombO();
 		
 		MenuEscape.AfficherPseudo();
 		MenuEscape.AfficherMode();
