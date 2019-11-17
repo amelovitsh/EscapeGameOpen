@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<log4j:configuration debug="true"
+	xmlns:log4j='/home/pulsar/Bureau/javaopen/escapeGame/bin/escapeGame/apache-log4j-2.12.1-bin'>
+	<Properties>
+	<Propertty name="basePath">./lo4j.java</Propertty>
+	</Properties>
+			<Appenders>
+				<File name="FILE" fileName="${basePath}" append="true">
+			    <layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" 
+				  value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+			    </layout>
+			    </File>
+			</Appenders>
+		<Loggers>
+		<Logger name="log4j.java" level="debug"/>
+		</Loggers>
+			<root>
+				<level value="DEBUG" />
+				<appender-ref ref="File" />
+			</root>
+
+</log4j:configuration>

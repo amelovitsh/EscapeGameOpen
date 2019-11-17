@@ -1,15 +1,16 @@
 package escapeGame;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		LecturConfig appProps = new LecturConfig();
-		appProps.load(new FileInputStream(config.properties));
-		int appXChiffrComb = appProps.getProperty("xChiffrComb");
-		int appNbrEssai = appProps.getProperty("nbrEssai");
-		boolean appMoDev = appProps.getProperty("moDev");
+		int xChiffrComb = appProps.getPropertyXchiffrComb();
+		int nbrEssai = appProps.getPropertyNbrEssai();
+		boolean moDev = appProps.getPropertyMoDev();
 		
 		Menu MenuEscape = new Menu();	
 		MenuEscape.AfficherInstructions(MenuEscape.getInstructions());

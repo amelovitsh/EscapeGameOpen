@@ -11,10 +11,7 @@ public class ComparateurTest {
 		
 		Comparateur2 propC = new Comparateur2();
 		propC.duel();
-		
-		
-	
-		
+			
 	}
 		
 }
