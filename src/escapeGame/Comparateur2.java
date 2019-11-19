@@ -19,8 +19,9 @@ public class Comparateur2 {
 	int tabMin[]= new int[xChiffrComb];
 	int tabMax[]= new int[xChiffrComb];
 	int pivot[]= new int[xChiffrComb];
-	static int  a = 1;
-	int equals = 0;
+	int  a = 1;
+	int equalrecherchDico=0;
+	int equalChallenger = 0;
 	private String indicSign;
 	Scanner clavier = new Scanner(System.in);
 	
@@ -41,29 +42,21 @@ public class Comparateur2 {
 		
 		return indicationJ;
 		}
-	/** 
-	 * propoJ donne nouvelle proposition 
-     */
-	public void propoJ(){ 
-		
-		for(int i = 0; i <= xChiffrComb-1; i++) {
-
-		tabMin[i] = 0;
-		tabMax[i] = 9;
-		pivot[i] = (tabMax[i]+tabMin[i])/2+1;
-		System.out.print(pivot[i]);
-		}
-	
-	while (equals < indicationJ.length){
-		
-			equals = 0;
+	/**
+	 * Methode extraite de recherche dicho
+	 * 
+	 */
+	public void methodExtraite() {
+		while (equalrecherchDico < indicationJ.length){
+			
+			equalrecherchDico = 0;
 			stockIndication();
 			
 			for(int i=0; i< indicationJ.length; i++) {
 				
 				if(indicationJ[i] == '=') {
 					
-					equals++;	
+					equalrecherchDico++;	
 				}
 				else if(indicationJ[i] == '+'){
 					 
@@ -77,16 +70,56 @@ public class Comparateur2 {
 				pivot[i] = ((tabMin[i]+tabMax[i])/2)+1;
 				nvlProposition[i] = pivot[i];
 			}
+		}
+	}
+	/** 
+	 * propoJ donne nouvelle proposition 
+     */
+	public void recherchDico(){ 
+		
+		for(int i = 0; i <= xChiffrComb-1; i++) {
+
+			tabMin[i] = 0;
+			tabMax[i] = 9;
+			pivot[i] = (tabMax[i]+tabMin[i])/2+1;
+			System.out.print(pivot[i]);
+			}
+		
+		methodExtraite();
+	
+		/*while (equalrecherchDico < indicationJ.length){
+			
+			equalrecherchDico = 0;
+			stockIndication();
+			
+			for(int i=0; i< indicationJ.length; i++) {
+				
+				if(indicationJ[i] == '=') {
+					
+					equalrecherchDico++;	
+				}
+				else if(indicationJ[i] == '+'){
+					 
+					 tabMin[i] = pivot[i] +1;
+				}
+				else if(indicationJ[i] == '-'){
+					 
+					 tabMax[i] = pivot[i]-1;
+					
+				}
+				pivot[i] = ((tabMin[i]+tabMax[i])/2)+1;
+				nvlProposition[i] = pivot[i];
+			}*/
 			
 			essai++;
 			System.out.print(essai);
 			System.out.print(nbrEssai+"\n");
-			if(equals != indicationJ.length & essai == nbrEssai) {
+			if(equalrecherchDico != indicationJ.length & essai == nbrEssai) {
 				
 			System.out.print("\nNombre d'essais maximum atteint");
 					
 			}
-				if(equals != indicationJ.length & essai != nbrEssai) {
+				if(equalrecherchDico != indicationJ.length & essai != nbrEssai) {
 					for (int u = 0; u < nvlProposition.length; u++) {
 						if(nvlProposition[u]>=1 & nvlProposition[u]<9) {
 							
@@ -98,9 +131,9 @@ public class Comparateur2 {
 							}
 					}
 				}
-	}
+	//}
 			
-			if(equals == indicationJ.length) {
+			if(equalrecherchDico == indicationJ.length) {
 				System.out.println("Votre combinaison est");
 			
 				for (int u = 0; u < nvlProposition.length; u++) {
@@ -124,15 +157,15 @@ public class Comparateur2 {
 	public void deffenseur(){ 
 		Joueur Jtest = new Joueur();
 		int []tabJ = Jtest.demandCombJ();
-		propoJ();
+		recherchDico();
 	}
 	
 	/** 
-	 * recherchDico donne nouvelle combi en fonction de la proposition du joueur.
+	 * propoJ donne nouvelle combi en fonction de la proposition du joueur.
 	 * @see Ordi
 	 * @see Comparateur
      */
-	public void recherchDico() {
+	public void propoJ() {
 		
 		Ordi OrdiEscape = new Ordi();
 		int [] tabO = OrdiEscape.generCombO();
@@ -141,14 +174,14 @@ public class Comparateur2 {
 		Joueur Jtest = new Joueur();
 		int []tabJ = Jtest.demandCombJ();
 		
-			while(equals != tabJ.length & essai != nbrEssai) {
+			while(equalChallenger != tabJ.length & essai != nbrEssai) {
 				
 				for (int i = 0; i < tabJ.length; i++) {
 						
 					if(tabJ[i]==tabO[i]) {
 						
 						System.out.print("=");
-						equals++;
+						equalChallenger++;
 					}
 					
 					else if (tabO[i]<tabJ[i]){
@@ -158,17 +191,20 @@ public class Comparateur2 {
 						System.out.print("+");
 					}	
 				}
-				essai++;
+				//essai++;
+				//System.out.print(essai);
 			
-				if(equals != tabJ.length) {
+				if(equalChallenger != tabJ.length) {
 					
-					equals = 0;
+					equalChallenger = 0;
 					//Jtest.demandCombJ();
 					}
 				
-					else if(equals == tabJ.length){
+					else if(equalChallenger == tabJ.length){
 						System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
 					}
+				essai++;
+				System.out.print(essai);
 			}
 			}
 	
@@ -179,11 +215,9 @@ public class Comparateur2 {
 	 * @see Comparateur
      */
 	public void challenger() {
-		
-		int equals = 0;
 	
-			while(equals != xChiffrComb & essai != nbrEssai) {
-				recherchDico();
+			while(equalChallenger != xChiffrComb & essai != nbrEssai) {
+				propoJ();
 			}
 			if(essai == nbrEssai) {
 			System.out.print("\nNombre d'essais maximum atteint");
@@ -208,15 +242,27 @@ public class Comparateur2 {
 		
 		if(pairImpair==0) {
 			System.out.print("\nchallenger\n");
-			recherchDico();
-			tour--;
+			while(equalChallenger != xChiffrComb & essai != nbrEssai) {
+				propoJ();
+				tour=tour-1/2;
+			}
+			if(essai == nbrEssai) {
+			System.out.print("\nNombre d'essais maximum atteint");
+			}
 		}
+			
+		
 		else {
 			System.out.print("\ndeffenseur\n");
-			propoJ();
-			tour--;
-		}
+			/*while(equalChallenger != xChiffrComb & essai != nbrEssai) {
+				methodExtraite();
+				tour=tour-1/2;
+			}
+			if(essai == nbrEssai) {
+			System.out.print("\nNombre d'essais maximum atteint");
+			}*/
 		}	
 		
-	}	
+	}
+	}
 }
