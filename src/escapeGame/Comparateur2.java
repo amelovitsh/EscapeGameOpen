@@ -11,11 +11,14 @@ import java.util.Scanner;
  */
 
 public class Comparateur2 {
-	static int  xChiffrComb = 4;
-	static int nbrEssai =2;
+
+	LecturConfig appProps = new LecturConfig();
+	int xChiffrComb = appProps.getPropertyXchiffrComb();
+	int nbrEssai = appProps.getPropertyNbrEssai();
+	boolean moDev = appProps.getPropertyMoDev();
 	int essai =0;
-	static char indicationJ[] = new char[xChiffrComb];
-	static int nvlProposition[]= new int[xChiffrComb];
+	char indicationJ[] = new char[xChiffrComb];
+	int nvlProposition[]= new int[xChiffrComb];
 	int tabMin[]= new int[xChiffrComb];
 	int tabMax[]= new int[xChiffrComb];
 	int pivot[]= new int[xChiffrComb];
@@ -85,9 +88,9 @@ public class Comparateur2 {
 			System.out.print(pivot[i]);
 			}
 		
-		methodExtraite();
+		//methodExtraite();
 	
-		/*while (equalrecherchDico < indicationJ.length){
+		while (equalrecherchDico < indicationJ.length){
 			
 			equalrecherchDico = 0;
 			stockIndication();
@@ -109,7 +112,7 @@ public class Comparateur2 {
 				}
 				pivot[i] = ((tabMin[i]+tabMax[i])/2)+1;
 				nvlProposition[i] = pivot[i];
-			}*/
+			}
 			
 			essai++;
 			System.out.print(essai);
@@ -145,7 +148,7 @@ public class Comparateur2 {
 						System.out.print(nvlProposition[u]);
 						}
 				}
-			}
+			}}
 	}
 	
 	/** 
@@ -204,7 +207,7 @@ public class Comparateur2 {
 						System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
 					}
 				essai++;
-				System.out.print(essai);
+				//System.out.print(essai);
 			}
 			}
 	
