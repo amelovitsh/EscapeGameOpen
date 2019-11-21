@@ -42,7 +42,7 @@ public class Duel {
 			Ordi OrdiEscape = new Ordi();
 			combinaisonSecretOrdi = OrdiEscape.generCombO();
 			 challengerModOn= true;
-				while(challengerModOn && essai<nbrEssai) {
+				while(challengerModOn && essai<nbrEssai && pairImpair==0) {
 					challengerModOn= false;
 					Challenger chalDuel = new Challenger();
 					chalDuel.propoJ();

@@ -54,7 +54,7 @@ public class Challenger {
 		
 				
 				for (int i = 0; i < tabJ.length; i++) {
-						
+					
 					if(tabJ[i]==combinaisonSecretOrdi[i]) {
 						
 						System.out.print("=");
@@ -68,6 +68,7 @@ public class Challenger {
 						System.out.print("+");
 						challengerModOn= true;
 					}	
+					System.out.println(challengerModOn);
 				}
 				essai++;
 			}

@@ -63,7 +63,7 @@ public class Menu {
          * @throws IllegalArgumentException  Si jamais le choix ne correspond pas aux propositions. 
          * @see Comparateur
          */
-		public void AfficherMode()throws IllegalArgumentException{
+		public void afficherMode()throws IllegalArgumentException{
 		
 			while(sortirJeu==false){
 				System.out.println(instructions);
@@ -85,13 +85,13 @@ public class Menu {
 			
 			case 2:
 				System.out.println("Vous avez choisi le mode Défenseur");
-				Challenger propD = new Challenger();
+				Deffenseur propD = new Deffenseur();
 				propD.deffenseur();	
 				break;
 			
 			case 3:
 				System.out.println("Vous avez choisi le mode Duel");
-				Challenger JoueurEscape3 = new Challenger();
+				Duel JoueurEscape3 = new Duel();
 				JoueurEscape3.duel();	
 				break;
 				

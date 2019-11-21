@@ -13,10 +13,9 @@ public class Main {
 		boolean moDev = appProps.getPropertyMoDev();
 		
 		Menu MenuEscape = new Menu();	
-		MenuEscape.AfficherInstructions(MenuEscape.getInstructions());
 		
-		MenuEscape.AfficherPseudo();
-		MenuEscape.AfficherMode();
+		MenuEscape.afficherPseudo();
+		MenuEscape.afficherMode();
 		
 		Joueur JoueurEscape = new Joueur(); 
 		JoueurEscape.demandCombJ();	
