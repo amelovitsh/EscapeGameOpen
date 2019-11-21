@@ -28,14 +28,7 @@ public class Menu {
 	private boolean sortirJeu = false;
 	Scanner clavier = new Scanner(System.in);
 	
-	//GetterS/SETTERS POUR CHACUNS DE MES ATTRIBUTS 
-	
-	public String getInstructions() {
-		return instructions;
-	}
-	public void setInstructions(String instructions) {
-		this.instructions = instructions;
-	}
+	//GetterS/SETTERS ATTRIBUT
 	public int getModeJeu() {
 		return modeJeu;
 	}
@@ -52,19 +45,12 @@ public class Menu {
 		this.modeJeu = modeJeu;
 		}
 	}
-	
-	/** 
-	 * Affiche les instruction
-     */
-		public void AfficherInstructions(String instructions){
-			System.out.println(instructions);
-	}
-	
+
 	
 		/** 
 		 * Réccupère et affiche le pseudo
          */
-		public void AfficherPseudo() {
+		public void afficherPseudo() {
 			System.out.println("Quel est votre pseudo");
 			this.nom = clavier.nextLine();
 			//clavier.close();
@@ -78,10 +64,10 @@ public class Menu {
          * @see Comparateur
          */
 		public void AfficherMode()throws IllegalArgumentException{
-			
-			System.out.println("Quel est votre choix de jeu?");
 		
 			while(sortirJeu==false){
+				System.out.println(instructions);
+				System.out.println("Quel est votre choix de jeu?");
 			try { 
 				this.modeJeu = clavier.nextInt();
 			
@@ -93,19 +79,19 @@ public class Menu {
 			{
 			case 1:
 				System.out.println("Vous avez choisi le mode Challenger");
-				Comparateur2 propC = new Comparateur2();
+				Challenger propC = new Challenger();
 				propC.challenger();	
 				break;
 			
 			case 2:
 				System.out.println("Vous avez choisi le mode Défenseur");
-				Comparateur2 propD = new Comparateur2();
+				Challenger propD = new Challenger();
 				propD.deffenseur();	
 				break;
 			
 			case 3:
 				System.out.println("Vous avez choisi le mode Duel");
-				Comparateur2 JoueurEscape3 = new Comparateur2();
+				Challenger JoueurEscape3 = new Challenger();
 				JoueurEscape3.duel();	
 				break;
 				
