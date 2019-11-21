@@ -42,18 +42,19 @@ public class Duel {
 			Ordi OrdiEscape = new Ordi();
 			combinaisonSecretOrdi = OrdiEscape.generCombO();
 			 challengerModOn= true;
-				while(challengerModOn && essai<nbrEssai && pairImpair==0) {
+				while(challengerModOn && essai<nbrEssai) {
 					challengerModOn= false;
 					Challenger chalDuel = new Challenger();
 					chalDuel.propoJ();
 					tour--;
 				}
-				if(challengerModOn==false && essai<=nbrEssai) {
+				/*if(challengerModOn==false && essai<=nbrEssai) {
+					System.out.print(challengerModOn);
 					System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
 				}
 				else {
 				System.out.print("\nNombre d'essais maximum atteint");
-			}
+			}*/
 		}
 		else {
 			System.out.print("\ndeffenseur\n");
