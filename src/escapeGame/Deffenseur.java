@@ -33,8 +33,7 @@ public class Deffenseur {
 	 */
 	public void recherchDico() {
 		 
-		Challenger stockCha = new Challenger();
-		char indicationJ[]= stockCha.stockIndication();
+		char indicationJ[]= Utilitaires.stockIndication();
 			for(int i=0; i< indicationJ.length; i++) {
 				
 				if(indicationJ[i] == '=') {
@@ -78,8 +77,8 @@ public class Deffenseur {
      * @return indicationJ
      */
 	public void deffenseur(){ 
-		Joueur combinaisonAdevinerDuJoueur = new Joueur();
-		combinaisonAdevinerDuJoueur.demandCombJ();
+
+		Utilitaires.demandCombJ();
 		
 		for(int i = 0; i <= xChiffrComb-1; i++) {
 

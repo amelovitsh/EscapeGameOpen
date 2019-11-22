@@ -58,8 +58,8 @@ public class Duel {
 		}
 		else {
 			System.out.print("\ndeffenseur\n");
-			Joueur combinaisonAdevinerDuJoueur = new Joueur();
-			combinaisonAdevinerDuJoueur.demandCombJ();
+			
+			Utilitaires.demandCombJ();
 			
 			for(int i = 0; i <= xChiffrComb-1; i++) {
 

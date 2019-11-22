@@ -25,21 +25,6 @@ public class Challenger {
 	
 	
 	
-	/** 
-	 * Stock dans un tableau les indications (+-=) que donne le joueur
-     * @return indicationJ
-     */
-	public char [] stockIndication(){
-		System.out.println("\nMerci d'indiquer pour chaque chiffre de la combinaison proposé si le chiffre à deviner est :\nplus grand(+)\nplus petit(-)\négale(=)");
-		this.indicSign = clavier.nextLine();
-		for(int i = 1; i <= xChiffrComb; i++)
-		{
-			char elmtSign = indicSign.charAt(i-1);
-			indicationJ[i-1] = elmtSign;
-		}
-		
-		return indicationJ;
-		}
 	
 	/** 
 	 * propoJ donne nouvelle combi en fonction de la proposition du joueur.
@@ -49,9 +34,8 @@ public class Challenger {
 	public void propoJ() {
 		
 		System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
-		Joueur Jtest = new Joueur();
-		int []tabJ = Jtest.demandCombJ();
-		
+
+		int []tabJ = Utilitaires.demandCombJ();
 				
 				for (int i = 0; i < tabJ.length; i++) {
 					
