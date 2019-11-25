@@ -41,14 +41,15 @@ public class Duel {
 		duelChalModOn= true;
 		duelDefModOn= true;
 		while(duelChalModOn || duelDefModOn && tour>0) {
-			System.out.print("\nTour Humain\n");
+			
 			Ordi OrdiEscape = new Ordi();
 			int combinaisonSecretOrdi[] = OrdiEscape.generCombO();
+			System.out.print("\nTour Humain: A l'humain de deviner la combi de l'ordi\n");
 			int [] combinaisonSecretJoueur = Utilitaires.demandCombJ();
 			challengerC.propoJ();
 			duelChalModOn= false;
 			
-			System.out.print("\nTour ordinateur\n");
+			System.out.print("\nTour ordinateur: A l'ordi de deviner la combi du joueur\n");
 			int [] combinaisonSecretJoueur1 = Utilitaires.demandCombJ();
 			for(int i = 0; i <= xChiffrComb-1; i++) {
 

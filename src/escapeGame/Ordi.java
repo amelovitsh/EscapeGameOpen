@@ -13,7 +13,7 @@ public class Ordi {
 	static int xChiffrComb = appProps.getPropertyXchiffrComb();
 	static boolean moDev = appProps.getPropertyMoDev();
 	static int combinaisonO[] = new int[xChiffrComb];
-	int  a = 1;
+	static int  a = 1;
 	Scanner clavier = new Scanner(System.in);
  	
 	/** 
