@@ -35,24 +35,23 @@ public class Challenger {
 		
 		System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
 
-		int []tabJ = Utilitaires.demandCombJ();
+		int []combinaisonSecretJoueur = Utilitaires.demandCombJ();
 				
-				for (int i = 0; i < tabJ.length; i++) {
+				for (int i = 0; i < combinaisonSecretJoueur.length; i++) {
 					
-					if(tabJ[i]==combinaisonSecretOrdi[i]) {
+					if(combinaisonSecretJoueur[i]==combinaisonSecretOrdi[i]) {
 						
 						System.out.print("=");
 					}
 					
-					else if (combinaisonSecretOrdi[i]<tabJ[i]){
+					else if (combinaisonSecretOrdi[i]<combinaisonSecretJoueur[i]){
 						System.out.print("-");
 						challengerModOn= true;
 					}
-					else if (combinaisonSecretOrdi[i]>tabJ[i]){
+					else if (combinaisonSecretOrdi[i]>combinaisonSecretJoueur[i]){
 						System.out.print("+");
 						challengerModOn= true;
 					}	
-					System.out.println(challengerModOn);
 				}
 				essai++;
 			}

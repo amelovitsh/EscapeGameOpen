@@ -24,7 +24,10 @@ public class Duel {
 	Scanner clavier = new Scanner(System.in);
 	boolean challengerModOn;
 	boolean deffenseurModOn;
-	
+	boolean duelChalModOn;
+	boolean duelDefModOn;
+	Challenger challengerC;
+	Deffenseur deffenseurD;
 	
 	
 	/** 
@@ -32,7 +35,33 @@ public class Duel {
 	 * @see Comparateur
      */
 	public void duel() {
-	int tour = nbrEssai*2;
+		int tour=4;
+		challengerC= new Challenger();
+		deffenseurD= new Deffenseur();
+		duelChalModOn= true;
+		duelDefModOn= true;
+		while(duelChalModOn || duelDefModOn && tour>0) {
+			System.out.print("\nTour Humain\n");
+			Ordi OrdiEscape = new Ordi();
+			int combinaisonSecretOrdi[] = OrdiEscape.generCombO();
+			int [] combinaisonSecretJoueur = Utilitaires.demandCombJ();
+			challengerC.propoJ();
+			duelChalModOn= false;
+			
+			System.out.print("\nTour ordinateur\n");
+			int [] combinaisonSecretJoueur1 = Utilitaires.demandCombJ();
+			for(int i = 0; i <= xChiffrComb-1; i++) {
+
+				tabMin[i] = 0;
+				tabMax[i] = 9;
+				pivot[i] = (tabMax[i]+tabMin[i])/2+1;
+				System.out.print(pivot[i]);
+				}
+			
+			deffenseurD.recherchDico();
+		}
+		
+	/*int tour = nbrEssai*2;
 	while(tour>0) {
 		
 		int pairImpair = tour %2;
@@ -44,17 +73,9 @@ public class Duel {
 			 challengerModOn= true;
 				while(challengerModOn && essai<nbrEssai) {
 					challengerModOn= false;
-					Challenger chalDuel = new Challenger();
-					chalDuel.propoJ();
+					challengerC.propoJ();
 					tour--;
 				}
-				/*if(challengerModOn==false && essai<=nbrEssai) {
-					System.out.print(challengerModOn);
-					System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");
-				}
-				else {
-				System.out.print("\nNombre d'essais maximum atteint");
-			}*/
 		}
 		else {
 			System.out.print("\ndeffenseur\n");
@@ -72,8 +93,8 @@ public class Duel {
 			deffenseurModOn= true;
 			while(deffenseurModOn && essai<nbrEssai) {
 				deffenseurModOn= false;	
-				Deffenseur deffDuel = new Deffenseur();
-				deffDuel.recherchDico();
+				
+				deffenseurD.recherchDico();
 				tour--;
 			}
 			if(deffenseurModOn==false && essai<=nbrEssai) {
@@ -83,7 +104,7 @@ public class Duel {
 			System.out.print("\nNombre d'essais maximum atteint");
 			}
 		}
-		}
+		}*/
 	}
 }
 

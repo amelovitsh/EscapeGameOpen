@@ -9,9 +9,11 @@ import java.util.Scanner;
 
 public class Ordi {
 	
-	static int  xChiffrComb = 4;
+	static LecturConfig appProps = new LecturConfig();
+	static int xChiffrComb = appProps.getPropertyXchiffrComb();
+	static boolean moDev = appProps.getPropertyMoDev();
 	static int combinaisonO[] = new int[xChiffrComb];
-	 static int  a = 1;
+	int  a = 1;
 	Scanner clavier = new Scanner(System.in);
  	
 	/** 
@@ -25,9 +27,9 @@ public class Ordi {
 			int nombreAleatoire = (int)(Math.random() * ((9) + 1));
 			
 			combinaisonO[i-1] = nombreAleatoire;	
-			//if(moDev==true) {
+			if(moDev==true) {
 			System.out.print(nombreAleatoire);
-			//}
+			}
 		}
 		
 		return combinaisonO;

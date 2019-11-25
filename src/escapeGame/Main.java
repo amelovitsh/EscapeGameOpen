@@ -17,8 +17,8 @@ public class Main {
 		MenuEscape.afficherPseudo();
 		MenuEscape.afficherMode();
 		
-		Joueur JoueurEscape = new Joueur(); 
-		JoueurEscape.demandCombJ();	
+		//Joueur JoueurEscape = new Joueur(); 
+		//JoueurEscape.demandCombJ();	
 		
 		
 		}
