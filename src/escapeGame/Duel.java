@@ -20,7 +20,6 @@ public class Duel {
 	int tabMin[]= new int[xChiffrComb];
 	int tabMax[]= new int[xChiffrComb];
 	int pivot[]= new int[xChiffrComb];
-	int [] combinaisonSecretOrdi = new int[xChiffrComb];
 	Scanner clavier = new Scanner(System.in);
 	boolean challengerModOn;
 	boolean deffenseurModOn;
@@ -57,7 +56,7 @@ public class Duel {
 			duelChalModOn= false;
 			duelDefModOn= false;
 			System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
-			duelChalModOn = challengerC.propoJ();
+			duelChalModOn = challengerC.propoJ(combinaisonSecretOrdi);
 			
 			
 			System.out.print("\nTour ordinateur: A l'ordi de deviner la combi du joueur\n");

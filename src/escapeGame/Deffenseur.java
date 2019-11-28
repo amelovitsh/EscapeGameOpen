@@ -55,7 +55,7 @@ public class Deffenseur {
 				
 				if(nvlProposition[i]>=1 & nvlProposition[i]<9) {
 					
-			        System.out.print(nvlProposition[i]); 
+			       // System.out.print(nvlProposition[i]); 
 					}
 					else if(nvlProposition[i]>9) {
 						nvlProposition[i]=9;
