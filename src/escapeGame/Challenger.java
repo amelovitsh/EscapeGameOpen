@@ -18,7 +18,7 @@ public class Challenger {
 	boolean moDev = appProps.getPropertyMoDev();
 	int essai =0;
 	char indicationJ[] = new char[xChiffrComb];
-	int [] combinaisonSecretOrdi = new int[xChiffrComb];
+	//int [] combinaisonSecretOrdi = new int[xChiffrComb];
 	private String indicSign;
 	Scanner clavier = new Scanner(System.in);
 	boolean challengerModOn;
@@ -31,11 +31,10 @@ public class Challenger {
 	 * @see Ordi
 	 * @see Comparateur
      */
-	public void propoJ() {
+	public boolean propoJ() {
 		
-		System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
-
 		int []combinaisonSecretJoueur = Utilitaires.demandCombJ();
+		int [] combinaisonSecretOrdi = new int[xChiffrComb];
 				
 				for (int i = 0; i < combinaisonSecretJoueur.length; i++) {
 					
@@ -52,8 +51,10 @@ public class Challenger {
 						System.out.print("+");
 						challengerModOn= true;
 					}	
+					System.out.print(combinaisonSecretOrdi[i]);
 				}
 				essai++;
+				return challengerModOn;
 			}
 	/** 
 	 * Mode challenger système donne indication au joueur pour qu'il tente de deviner comb Ordi 
@@ -63,8 +64,10 @@ public class Challenger {
      */
 	public void challenger() {
 		Ordi OrdiEscape = new Ordi();
-		combinaisonSecretOrdi = OrdiEscape.generCombO();
-		 challengerModOn= true;
+		int []combinaisonSecretOrdi = OrdiEscape.generationSecreteCombinaisonOrdinateur();
+		challengerModOn= true;
+		System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
+
 			while(challengerModOn && essai<nbrEssai) {
 				challengerModOn= false;
 				propoJ();

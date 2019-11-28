@@ -20,18 +20,21 @@ public class Ordi {
 	 * Génere  une combinaison aléatoire
      * @return combinaisonO
      */
-	public  int [] generCombO(){
+	public  int [] generationSecreteCombinaisonOrdinateur(){
 		
 		for(int i = 1; i <= xChiffrComb; i++)
 		{
 			int nombreAleatoire = (int)(Math.random() * ((9) + 1));
 			
 			combinaisonO[i-1] = nombreAleatoire;	
-			if(moDev==true) {
-			System.out.print(nombreAleatoire);
+			
+			}
+		if(moDev==true) {
+			System.out.print("Combinaison  secrète ordi:");
+			for(int i:combinaisonO) {
+				System.out.print(i);
 			}
 		}
-		
 		return combinaisonO;
 		}
 }

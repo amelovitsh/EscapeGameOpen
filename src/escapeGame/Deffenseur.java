@@ -31,7 +31,7 @@ public class Deffenseur {
 	 * Methode recherchDico algorithme selon le principe de recherche dichotomique
 	 * 
 	 */
-	public void recherchDico() {
+	public boolean recherchDico() {
 		 
 		char indicationJ[]= Utilitaires.stockIndication();
 			for(int i=0; i< indicationJ.length; i++) {
@@ -64,6 +64,7 @@ public class Deffenseur {
 				
 				}
 				essai++;
+				return deffenseurModOn;
 			}
 	
 	/** 
@@ -77,7 +78,7 @@ public class Deffenseur {
      * @return indicationJ
      */
 	public void deffenseur(){ 
-
+		System.out.print("Rentrer la combinaison que l'ordi doit trouver:");
 		Utilitaires.demandCombJ();
 		
 		for(int i = 0; i <= xChiffrComb-1; i++) {

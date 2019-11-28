@@ -35,77 +35,42 @@ public class Duel {
 	 * @see Comparateur
      */
 	public void duel() {
-		int tour=4;
+		
 		challengerC= new Challenger();
 		deffenseurD= new Deffenseur();
 		duelChalModOn= true;
 		duelDefModOn= true;
-		while(duelChalModOn || duelDefModOn && tour>0) {
-			
-			Ordi OrdiEscape = new Ordi();
-			int combinaisonSecretOrdi[] = OrdiEscape.generCombO();
-			System.out.print("\nTour Humain: A l'humain de deviner la combi de l'ordi\n");
-			int [] combinaisonSecretJoueur = Utilitaires.demandCombJ();
-			challengerC.propoJ();
+		Ordi OrdiEscape = new Ordi();
+		int combinaisonSecretOrdi[] = OrdiEscape.generationSecreteCombinaisonOrdinateur();
+		System.out.print("\nTour Humain: Rentrer votre combinaison secrète\n");
+		int [] combinaisonSecretJoueur = Utilitaires.demandCombJ();
+		System.out.print("Voici la combinaison secrète que l'ordinateur doit tenter de trouver:");
+		for(int i:combinaisonSecretJoueur) {
+			System.out.print(i);
+		}
+		for(int i = 0; i <= xChiffrComb-1; i++) {
+			deffenseurD.tabMin[i] = 0;
+			deffenseurD.tabMax[i] = 9;
+			}
+		
+		while((duelChalModOn && duelDefModOn)) {
 			duelChalModOn= false;
+			duelDefModOn= false;
+			System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
+			duelChalModOn = challengerC.propoJ();
+			
 			
 			System.out.print("\nTour ordinateur: A l'ordi de deviner la combi du joueur\n");
-			int [] combinaisonSecretJoueur1 = Utilitaires.demandCombJ();
-			for(int i = 0; i <= xChiffrComb-1; i++) {
-
-				tabMin[i] = 0;
-				tabMax[i] = 9;
-				pivot[i] = (tabMax[i]+tabMin[i])/2+1;
-				System.out.print(pivot[i]);
-				}
-			
-			deffenseurD.recherchDico();
-		}
-		
-	/*int tour = nbrEssai*2;
-	while(tour>0) {
-		
-		int pairImpair = tour %2;
-		
-		if(pairImpair==0) {
-			System.out.print("\nchallenger\n");
-			Ordi OrdiEscape = new Ordi();
-			combinaisonSecretOrdi = OrdiEscape.generCombO();
-			 challengerModOn= true;
-				while(challengerModOn && essai<nbrEssai) {
-					challengerModOn= false;
-					challengerC.propoJ();
-					tour--;
-				}
-		}
-		else {
-			System.out.print("\ndeffenseur\n");
-			
-			Utilitaires.demandCombJ();
 			
 			for(int i = 0; i <= xChiffrComb-1; i++) {
-
-				tabMin[i] = 0;
-				tabMax[i] = 9;
-				pivot[i] = (tabMax[i]+tabMin[i])/2+1;
-				System.out.print(pivot[i]);
+			
+				deffenseurD.pivot[i] = (deffenseurD.tabMax[i]+deffenseurD.tabMin[i])/2+1;
+				System.out.print(deffenseurD.pivot[i]);
 				}
 			
-			deffenseurModOn= true;
-			while(deffenseurModOn && essai<nbrEssai) {
-				deffenseurModOn= false;	
-				
-				deffenseurD.recherchDico();
-				tour--;
-			}
-			if(deffenseurModOn==false && essai<=nbrEssai) {
-				System.out.print("\nCombinaison trouvé!");
-			}
-			else {
-			System.out.print("\nNombre d'essais maximum atteint");
-			}
+			
+			duelDefModOn = deffenseurD.recherchDico();
 		}
-		}*/
 	}
 }
 
