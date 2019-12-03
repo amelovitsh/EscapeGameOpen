@@ -9,8 +9,8 @@ public class ComparateurTest {
 
 	public static void main(String[] args) {
 		
-		Duel propC = new Duel();
-		propC.duel();
+		Challenger propC = new Challenger();
+		propC.challenger();
 			
 	}
 		
