@@ -13,15 +13,11 @@ import java.util.InputMismatchException;
 
 public class Menu {
 	
-	private String instructions= "Ce jeu consiste à deviner une combinaison de 4 chiffres."+
+	private String instructions= "\nCe jeu consiste à deviner une combinaison de 4 chiffres."+
 			"\nVous avez 3 modes:"+"\n1-Mode Challenger: Vous tentez de deviner la combinaison de l'ordinateur."+
 			"\n2-Mode Défenseur: A vous de mettre à l'épreuve l'ordinateur en définissant le code à deviner."+
 			"\n3-Mode Duel: A tour de rôle vous tentez de deviner la combinaison de l'autre."+
-			"\n4-Quitter le jeu."+"\n"+
-			"\nIndication:Pour chaque chiffre proposé, il vous sera indiqué ou vous aurez à indiquer si celui-ci est:"+
-			"\nPlus grand (+)"+
-			"\nPlus petit (-)"+
-			"\nEgale (=)";
+			"\n4-Quitter le jeu."+"\n";
 			
 	private int modeJeu;
 	private String nom;

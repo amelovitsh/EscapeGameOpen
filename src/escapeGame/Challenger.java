@@ -73,6 +73,7 @@ public class Challenger {
 			while(challengerModOn && essai<nbrEssai) {
 				challengerModOn= false;
 				propoJ();
+				System.out.print("\nRéessayez une nouvelle combinaison:");
 			}
 			if(challengerModOn==false && essai<=nbrEssai) {
 				System.out.print("\nBravo! Vous avez trouvé la bonne combinaison");

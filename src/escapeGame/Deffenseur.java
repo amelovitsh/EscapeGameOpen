@@ -37,28 +37,35 @@ public class Deffenseur {
 			for(int i=0; i< indicationJ.length; i++) {
 				
 				if(indicationJ[i] == '=') {
-		
+				nvlProposition[i] = pivot[i];
 				}
 				else if(indicationJ[i] == '+'){
-					 
+ 
 					 tabMin[i] = pivot[i] +1;
 					 deffenseurModOn= true;
+					 pivot[i] = ((tabMin[i]+tabMax[i])/2);
+					 nvlProposition[i] = pivot[i];
 				}
 				else if(indicationJ[i] == '-'){
 
 					 tabMax[i] = pivot[i]-1;
 					 deffenseurModOn= true;
+					 pivot[i] = ((tabMin[i]+tabMax[i])/2);
+					 nvlProposition[i] = pivot[i];
 					
 				}
-				pivot[i] = ((tabMin[i]+tabMax[i])/2)+1;
-				nvlProposition[i] = pivot[i];
 				
-				if(nvlProposition[i]>=1 & nvlProposition[i]<9) {
+				if(nvlProposition[i]>=1 & nvlProposition[i]<=9) {
 					
-			       // System.out.print(nvlProposition[i]); 
+			       System.out.print(nvlProposition[i]); 
 					}
 					else if(nvlProposition[i]>9) {
+						
 						nvlProposition[i]=9;
+						System.out.print(nvlProposition[i]);
+						}
+					else if(nvlProposition[i]<0) {
+						nvlProposition[i]=0;
 						System.out.print(nvlProposition[i]);
 						}
 				

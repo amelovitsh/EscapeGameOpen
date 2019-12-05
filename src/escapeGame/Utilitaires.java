@@ -23,11 +23,18 @@ public class Utilitaires {
 	public static char [] stockIndication(){
 		clavier = new Scanner(System.in);
 		System.out.println("\nMerci d'indiquer pour chaque chiffre de la combinaison proposé si le chiffre à deviner est :\nplus grand(+)\nplus petit(-)\négale(=)");
-		indicSign = clavier.nextLine();
+		try {
+			indicSign = clavier.nextLine();
 		for(int i = 1; i <= xChiffrComb; i++)
 		{
 			char elmtSign = indicSign.charAt(i-1);
 			indicationJ[i-1] = elmtSign;
+		}}
+		catch(Exception e){
+			for(int i = 1; i <= xChiffrComb; i++)
+			{
+				indicationJ[i-1] = '-';
+			}
 		}
 		
 		return indicationJ;
@@ -41,12 +48,22 @@ public class Utilitaires {
 		static public int [] demandCombJ(){
 		clavier = new Scanner(System.in);
 		//System.out.println("\nChoisissez les "+ xChiffrComb + " chiffres de votre combinaison");
-		combX = clavier.nextLine();
-		for(int i = 1; i <= xChiffrComb; i++)
-		{
-			int combXint = Integer.parseInt(combX.substring(i-1, i));
-			combinaisonJ[i-1] = combXint;	
+		try{
+			combX = clavier.nextLine();
+			for(int i = 1; i <= xChiffrComb; i++)
+			{
+				int combXint = Integer.parseInt(combX.substring(i-1, i));
+				combinaisonJ[i-1] = combXint;	
+			}
 		}
+		catch(Exception e){
+			System.out.println("\nChoisissez une combinaison à "+ xChiffrComb + " chiffres (combinaison par defaut 5555)");
+			for(int i = 1; i <= xChiffrComb; i++)
+			{
+				combinaisonJ[i-1] = 5;	
+			}
+		}
+		
 		return combinaisonJ;
 		}
 
