@@ -2,6 +2,11 @@ package escapeGame;
 
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+
 /**
  * <b>Comparateur est la classe qui compare combinaison et propositions </b>
  * @see Joueur
@@ -11,7 +16,7 @@ import java.util.Scanner;
  */
 
 public class Challenger {
-
+	static Logger logger = LogManager.getLogger(Challenger.class);
 	LecturConfig appProps = new LecturConfig();
 	int xChiffrComb = appProps.getPropertyXchiffrComb();
 	int nbrEssai = appProps.getPropertyNbrEssai();
@@ -36,7 +41,7 @@ public class Challenger {
 	 * @see Comparateur
      */
 	public boolean propoJ() {
-		
+		logger.info("msg d'information:methode propoJ ligne 42");
 		int []combinaisonSecretJoueur = Utilitaires.demandCombJ();
 				
 				for (int i = 0; i < combinaisonSecretJoueur.length; i++) {

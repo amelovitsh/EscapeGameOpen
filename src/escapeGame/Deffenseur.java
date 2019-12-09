@@ -54,20 +54,8 @@ public class Deffenseur {
 					 nvlProposition[i] = pivot[i];
 					
 				}
-				
-				if(nvlProposition[i]>=1 & nvlProposition[i]<=9) {
-					
-			       System.out.print(nvlProposition[i]); 
-					}
-					else if(nvlProposition[i]>9) {
-						
-						nvlProposition[i]=9;
-						System.out.print(nvlProposition[i]);
-						}
-					else if(nvlProposition[i]<0) {
-						nvlProposition[i]=0;
-						System.out.print(nvlProposition[i]);
-						}
+			
+				System.out.print(nvlProposition[i]);
 				
 				}
 				essai++;
