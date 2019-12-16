@@ -12,7 +12,7 @@ import escapeGame.CombinaisonAléatoirOrdi;
 /**
  * <b>Challenger est la classe qui compare la combinaison aléatoire de l'ordinateur et la proposition du joueur </b>
  * @see Joueur
- * @see COrdi
+ * @see CombinaisonAléatoirOrdi
  * @author Pulsar
  * @version 1.0
  */

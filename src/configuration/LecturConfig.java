@@ -14,14 +14,14 @@ public class LecturConfig {
 	private Properties p = new Properties();
 	public LecturConfig() {
 		 try {
-			fis =new FileInputStream( new File("/home/pulsar/Bureau/javaopen/escapeGame/src/escapeGame/config.properties"));
-			//fis =new FileInputStream( new File("./config.properties"));
+			fis =new FileInputStream( new File("config.properties"));
+
 			p.load(fis);
 			xChiffrComb =Integer.parseInt(p.getProperty("xChiffrComb"));
 			nbrEssai=Integer.parseInt(p.getProperty("nbrEssai"));
 			moDev=Boolean.parseBoolean(p.getProperty("moDev"));
 		 } catch (IOException e) {
-			// System.out.print("erreur");
+			 System.out.print("erreur");
 			 xChiffrComb= 4;
 			 nbrEssai= 20;
 			 moDev=true;

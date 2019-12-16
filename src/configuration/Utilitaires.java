@@ -47,7 +47,7 @@ public class Utilitaires {
      */
 		static public int [] demandCombJ(){
 		clavier = new Scanner(System.in);
-		//System.out.println("\nChoisissez les "+ xChiffrComb + " chiffres de votre combinaison");
+		
 		try{
 			combX = clavier.nextLine();
 			for(int i = 1; i <= xChiffrComb; i++)
