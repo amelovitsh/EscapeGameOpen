@@ -1,4 +1,4 @@
-package escapeGame;
+package configuration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,10 +21,10 @@ public class LecturConfig {
 			nbrEssai=Integer.parseInt(p.getProperty("nbrEssai"));
 			moDev=Boolean.parseBoolean(p.getProperty("moDev"));
 		 } catch (IOException e) {
-			 System.out.print("erreur");
+			// System.out.print("erreur");
 			 xChiffrComb= 4;
 			 nbrEssai= 20;
-			 moDev=false;
+			 moDev=true;
 		}
 	}
 	

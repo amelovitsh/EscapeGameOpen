@@ -1,4 +1,4 @@
-package escapeGame;
+package configuration;
 
 import java.util.Scanner;
 

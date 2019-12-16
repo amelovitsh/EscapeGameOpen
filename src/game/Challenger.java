@@ -1,14 +1,16 @@
-package escapeGame;
+package game;
 
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+import configuration.LecturConfig;
+import configuration.Utilitaires;
+import escapeGame.CombinaisonAléatoirOrdi;
 
 /**
- * <b>Comparateur est la classe qui compare combinaison et propositions </b>
+ * <b>Challenger est la classe qui compare la combinaison aléatoire de l'ordinateur et la proposition du joueur </b>
  * @see Joueur
  * @see COrdi
  * @author Pulsar
@@ -16,7 +18,7 @@ import org.apache.logging.log4j.Logger;
  */
 
 public class Challenger {
-	static Logger logger = LogManager.getLogger(Challenger.class);
+	//static Logger logger = LogManager.getLogger(Challenger.class);
 	LecturConfig appProps = new LecturConfig();
 	int xChiffrComb = appProps.getPropertyXchiffrComb();
 	int nbrEssai = appProps.getPropertyNbrEssai();
@@ -37,11 +39,11 @@ public class Challenger {
 	
 	/** 
 	 * propoJ donne nouvelle combi en fonction de la proposition du joueur.
-	 * @see Ordi
+	 * @see CombinaisonAléatoirOrdi
 	 * @see Comparateur
      */
 	public boolean propoJ() {
-		logger.info("msg d'information:methode propoJ ligne 42");
+		//logger.info("msg d'information:methode propoJ ligne 42");
 		int []combinaisonSecretJoueur = Utilitaires.demandCombJ();
 				
 				for (int i = 0; i < combinaisonSecretJoueur.length; i++) {
@@ -65,13 +67,12 @@ public class Challenger {
 			}
 	/** 
 	 * Mode challenger système donne indication au joueur pour qu'il tente de deviner comb Ordi 
-	 * @see Joueur
-	 * @see Ordi
+	 * @see CombinaisonAléatoirOrdi
 	 * @see Comparateur
      */
 	public void challenger() {
-		Ordi OrdiEscape = new Ordi();
-		combinaisonSecretOrdi = OrdiEscape.generationSecreteCombinaisonOrdinateur();
+		CombinaisonAléatoirOrdi ordiescape = new CombinaisonAléatoirOrdi();
+		combinaisonSecretOrdi = ordiescape.generationSecreteCombinaisonOrdinateur();
 		challengerModOn= true;
 		System.out.print("\nA vous de deviner la combinaison de l'ordinateur:");
 

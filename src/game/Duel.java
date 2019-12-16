@@ -1,6 +1,10 @@
-package escapeGame;
+package game;
 
 import java.util.Scanner;
+
+import configuration.LecturConfig;
+import configuration.Utilitaires;
+import escapeGame.CombinaisonAléatoirOrdi;
 
 /**
  * <b>Comparateur est la classe qui compare combinaison et propositions </b>
@@ -39,7 +43,7 @@ public class Duel {
 		deffenseurD= new Deffenseur();
 		duelChalModOn= true;
 		duelDefModOn= true;
-		Ordi OrdiEscape = new Ordi();
+		CombinaisonAléatoirOrdi OrdiEscape = new CombinaisonAléatoirOrdi();
 		int combinaisonSecretOrdi[] = OrdiEscape.generationSecreteCombinaisonOrdinateur();
 		System.out.print("\nTour Humain: Rentrer votre combinaison secrète\n");
 		int [] combinaisonSecretJoueur = Utilitaires.demandCombJ();

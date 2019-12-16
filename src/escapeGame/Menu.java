@@ -1,6 +1,11 @@
 package escapeGame;
 
 import java.util.Scanner;
+
+import game.Challenger;
+import game.Deffenseur;
+import game.Duel;
+
 import java.util.InputMismatchException;
 
 /**

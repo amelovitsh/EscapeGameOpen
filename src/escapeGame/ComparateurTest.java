@@ -2,6 +2,8 @@ package escapeGame;
 
 import java.util.Scanner;
 
+import game.Challenger;
+
 public class ComparateurTest {
 	
 

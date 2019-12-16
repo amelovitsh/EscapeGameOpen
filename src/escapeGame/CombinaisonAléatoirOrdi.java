@@ -1,13 +1,15 @@
 package escapeGame;
 import java.util.Scanner;
 
+import configuration.LecturConfig;
+
 /**
  * <b>Ordi est la classe qui génère et stock la combinaison de l'ordi </b>
  * @author Pulsar
  * @version 1.0
  */
 
-public class Ordi {
+public class CombinaisonAléatoirOrdi {
 	
 	static LecturConfig appProps = new LecturConfig();
 	static int xChiffrComb = appProps.getPropertyXchiffrComb();

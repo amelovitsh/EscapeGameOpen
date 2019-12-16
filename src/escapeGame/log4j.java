@@ -3,6 +3,8 @@ package escapeGame;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import game.Challenger;
+
 public class log4j {
 
 	static Logger logger = LogManager.getLogger(Challenger.class);

@@ -1,6 +1,9 @@
-package escapeGame;
+package game;
 
 import java.util.Scanner;
+
+import configuration.LecturConfig;
+import configuration.Utilitaires;
 
 /**
  * <b>Comparateur est la classe qui compare combinaison et propositions </b>
